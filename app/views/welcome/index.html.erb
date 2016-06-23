@@ -1,0 +1,50 @@
+        <button ><%= link_to 'New article', new_article_path %></button>
+      
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <% @articles.each do |article|%>
+                <div class="post-preview">
+                    <a href=/articles/<%=article.id%>>
+                        <h2 class="post-title">
+                            <%= article.title%>
+                        </h2>
+                        <h3 class="post-subtitle">
+                            <%= article.subtitle%>
+                        </h3>
+                    </a>
+                    <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on <%=Article.first.created_at%></p>
+                </div>
+                <i onclick="newlike(<%=article.id%>)" class="fa fa-thumbs-o-up votes">&nbsp<%=article.likes.count%>&nbsp&nbsp&nbsp&nbsp&nbsp</i><i onclick="dislike(<%=article.id%>)" class="fa fa-thumbs-o-down votes">&nbsp<%=article.dislikes.count%></i>
+
+                <h3> Comments </h3>
+                <%article.comments.each do |cm|%>
+
+                <p>
+
+                    <strong>name:</strong><%=cm.commenter%><br>
+                    <strong>Comment:</strong><%=cm.body%><br></p>
+                    <%end%>
+                <hr>
+                
+                <!-- Pager -->
+                <ul class="pager">
+                    <li class="next">
+                        <a href="#">Older Posts &rarr;</a>
+                    </li>
+                </ul>
+                <% end %>
+            </div>
+        </div>
+
+        
+        <style type="text/css">
+
+
+button{
+  margin:auto;
+  display:block;
+  background-color:#008CBA;
+}
+
+        </style>
+        
