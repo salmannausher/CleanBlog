@@ -1,5 +1,7 @@
 TestApp::Application.routes.draw do
 
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   devise_for :users, :controllers => {:sessions =>"sessions"}
   get "welcome/index"
   # The priority is based upon order of creation: first created -> highest priority.
@@ -10,7 +12,7 @@ TestApp::Application.routes.draw do
    match '/likes' => 'likes#create_likes',via: 'get'
    resources :comments
    resources :articles do 
-   resources :comments
+    resources :comments
   end
    root 'welcome#index'
 

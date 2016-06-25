@@ -1,19 +1,23 @@
 source 'https://rubygems.org'
-gem "rolify"
+
 # bundle for assigning roles
 
-
+ gem 'activeadmin', github: 'activeadmin'
 gem "font-awesome-rails"
 # Bundle for font awsome
 gem 'devise'
+gem 'cancancan'
+gem 'rolify'
+gem 'sass-rails'
+ #gem "meta_search", '>= 1.1.0.pre'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 
 # Use sqlite3 as the database for Active Record
-gem 'pg'
+gem 'sqlite3'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
+#gem 'sass-rails', '~> 4.0.0'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -53,5 +57,5 @@ end
 # gem 'capistrano', group: :development
 
 # Use debugger
-# gem 'debugger', group: [:development, :test]
+#gem 'debugger'
 

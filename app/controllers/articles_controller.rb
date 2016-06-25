@@ -1,12 +1,17 @@
 class ArticlesController < ApplicationController
 
   before_filter :authenticate_user!
+  load_and_authorize_resource
+
+# comments_controller.rb possibility
+#load_and_authorize_resource :nested => :article
   def index
     @articles = Article.all
   end
  
   def show
     @article = Article.find(params[:id])
+    authorize! :read, @article
   end
  
   def new
@@ -19,7 +24,8 @@ class ArticlesController < ApplicationController
  
   def create
     @article = Article.new(article_params)
- 
+    @article.user_id= current_user.id
+    
     if @article.save
       redirect_to @article
     else
